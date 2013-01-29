@@ -1,0 +1,9 @@
+c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\bin\Debug\csgraphics1.exe
+c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\bin\Debug\csgraphics1.pdb
+c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\obj\x86\Debug\csgraphics1.Form1.resources
+c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\obj\x86\Debug\csgraphics1.Properties.Resources.resources
+c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\obj\x86\Debug\csgraphics1.exe
+c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\obj\x86\Debug\csgraphics1.pdb
