@@ -7,8 +7,6 @@ c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\bin
 c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\bin\Debug\PieceWiseInput.pdb
 c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\obj\x86\Debug\PieceWiseInput.exe
 c:\users\akmal\documents\visual studio 2010\Projects\csgraphics1\csgraphics1\obj\x86\Debug\PieceWiseInput.pdb
-C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.exe
-C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.pdb
 C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\bin\Debug\PieceWiseInput.exe
 C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\bin\Debug\PieceWiseInput.pdb
 C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\obj\x86\Debug\ResolveAssemblyReference.cache
@@ -16,3 +14,5 @@ C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInp
 C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.Properties.Resources.resources
 C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.exe
+C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.pdb

@@ -25,8 +25,9 @@ namespace PieceWiseInput
 
         public bool isEqual(Token test)
         {
-            if (test.ToString().Equals(sValue) && test.vType == this.vType)
-                return true;
+            if (test.sValue.Equals(this.sValue,StringComparison.OrdinalIgnoreCase) )
+                if (test.vType == this.vType)
+                    return true;
             return false;
         }
     }

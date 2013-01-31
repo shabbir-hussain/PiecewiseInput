@@ -75,10 +75,14 @@ namespace PieceWiseInputTester
         {
             //test setup
             Parser target = new Parser(); // TODO: Initialize to an appropriate value
-            string function = "x*6*x+sin(x)"; // TODO: Initialize to an appropriate value
+            string function = "   x*6*x "; // TODO: Initialize to an appropriate value
             List<Token> expected = new List<Token>(); // TODO: Initialize to an appropriate value
             List<Token> actual = expected;
             expected.Add(new Token(Parser.ValType.VARIABLE,"X"));
+            expected.Add(new Token(Parser.ValType.OPtd, "*"));
+            expected.Add(new Token(Parser.ValType.NUMBER, "6"));
+            expected.Add(new Token(Parser.ValType.OPtd, "*"));
+            expected.Add(new Token(Parser.ValType.VARIABLE, "X"));
 
             //test method
             try
@@ -104,7 +108,7 @@ namespace PieceWiseInputTester
                 Assert.Fail("Input and Output are different lengths");
             for (int i = 0; i < expected.Count; i++)
             {
-                if (expected[i].Equals(actual[i]))
+                if (!expected[i].isEqual(actual[i]))
                     Assert.Fail("Values not equal at" + i);
             }
 

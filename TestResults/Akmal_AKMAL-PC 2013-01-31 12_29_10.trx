@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="3cf2882a-2a96-4476-a060-120dec478d32" name="Akmal@AKMAL-PC 2013-01-31 12:29:10" runUser="Akmal-PC\Akmal" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="ab53c294-92e3-4049-9e6d-3c050735bbb2">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Akmal_AKMAL-PC 2013-01-31 12_29_10">
+      <DeploymentItem filename="C:\Users\Akmal\Documents\Visual Studio 2010\Projects\PieceWiseInput\PieceWiseInput\bin\Debug\PieceWiseInput.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-01-31T12:29:10.6035484-05:00" queuing="2013-01-31T12:29:16.7529001-05:00" start="2013-01-31T12:29:17.3029315-05:00" finish="2013-01-31T12:36:21.4991942-05:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="AKMAL-PC" outcome="Warning" timestamp="2013-01-31T12:29:10.6605516-05:00">
+        <Text>Deployment is currently disabled. The deployment item 'PieceWiseInput.exe' on test 'PieceWiseInputTester.ParserTest.parseFunctionTest' was not deployed.</Text>
+      </RunInfo>
+      <RunInfo computerName="AKMAL-PC" outcome="Error" timestamp="2013-01-31T12:36:21.4791930-05:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="parseFunctionTest" storage="c:\users\akmal\documents\visual studio 2010\projects\piecewiseinput\piecewiseinputtester\bin\debug\piecewiseinputtester.dll" id="933d104a-7ada-f30a-ecb4-fffebfc34619">
+      <DeploymentItems>
+        <DeploymentItem filename="PieceWiseInput.exe" />
+      </DeploymentItems>
+      <Execution id="fab408fb-5ab9-4724-b6f0-ea9e8e8277c2" />
+      <TestMethod codeBase="C:/Users/Akmal/Documents/Visual Studio 2010/Projects/PieceWiseInput/PieceWiseInputTester/bin/Debug/PieceWiseInputTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PieceWiseInputTester.ParserTest, PieceWiseInputTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="parseFunctionTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="933d104a-7ada-f30a-ecb4-fffebfc34619" executionId="fab408fb-5ab9-4724-b6f0-ea9e8e8277c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="fab408fb-5ab9-4724-b6f0-ea9e8e8277c2" testId="933d104a-7ada-f30a-ecb4-fffebfc34619" testName="parseFunctionTest" computerName="AKMAL-PC" duration="00:07:03.8952454" startTime="2013-01-31T12:29:17.6039488-05:00" endTime="2013-01-31T12:36:21.4991942-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fab408fb-5ab9-4724-b6f0-ea9e8e8277c2">
+    </UnitTestResult>
+  </Results>
+</TestRun>

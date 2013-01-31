@@ -104,9 +104,10 @@ namespace PieceWiseInput
         {
             //cannot have empty input
             if (function.Equals(""))
-            {
+            {   //throw empty input exception
                 InvalidInputException ex = new InvalidInputException();
                 ex.Message = "Input is empty";
+                throw ex;
             }
 
             //make all caps
@@ -126,6 +127,16 @@ namespace PieceWiseInput
             ValType curvType = ValType.NUMBER;
 
             //get first char type
+            while (function[ptr] == ' ') //skip spaces
+            {
+                ptr++;
+                if (ptr == function.Length)//check for empty strings
+                {
+                    InvalidInputException ex = new InvalidInputException();
+                    ex.Message = "Input is empty";
+                    throw ex;
+                }
+            }
             if (Regex.IsMatch(function[ptr].ToString(), "[*/^.)]"))
             {
                 //throw invalid input
@@ -157,7 +168,11 @@ namespace PieceWiseInput
             for (; ptr < function.Length; ptr++)
             {
                 //get current value type
-                if (Regex.IsMatch(function[ptr].ToString(), "[*/^]"))
+                if (function[ptr] == ' ') //skip spaces
+                {
+                    continue;
+                }
+                else if (Regex.IsMatch(function[ptr].ToString(), "[*/^]"))
                     curvType = ValType.OPtd;
                 else if (function[ptr] == 'X')
                     curvType = ValType.VARIABLE;
@@ -403,11 +418,19 @@ namespace PieceWiseInput
             }
 
             //check function ending
-            ptr--;
             //get last char type
-            if (Regex.IsMatch(function[ptr].ToString(), "[A-WYZ*/^.(+-]"))
+            if (Regex.IsMatch(function[function.Length-1].ToString(), "[A-WYZ]"))
             {
                 //throw invalid input
+                InvalidInputException ex = new InvalidInputException();
+                ex.Message = "A-WYZ*/^.(+- not allowed at ending";
+                throw ex;
+            }
+            if (tokens[tokens.Count - 1].vType == ValType.OPtd
+                || tokens[tokens.Count - 1].vType == ValType.OPpm
+                || tokens[tokens.Count - 1].vType == ValType.OPBRACKET
+                || tokens[tokens.Count - 1].vType == ValType.DECIMAL)
+            {
                 InvalidInputException ex = new InvalidInputException();
                 ex.Message = "A-WYZ*/^.(+- not allowed at ending";
                 throw ex;
