@@ -90,6 +90,53 @@ namespace PieceWiseInput
             //additions
             //subtractions
 
+            //make copy
+            List<Token> ExprCopy = new List<Token>();
+            for (int i = 0; i < Expression.Count; i++)
+            {
+                ExprCopy.Add(new Token(Expression[i].vType, Expression[i].sValue));
+            }
+
+            //eval methods
+            for (int i = 0; i < ExprCopy.Count; i++)
+            {
+                //if its the start of a method
+                if (ExprCopy[i].vType == ValType.LETTER)
+                {
+                    //find args of method
+                    int bracketDepth = 0;
+                    List<Token> arguments = new List<Token>();
+                    for (int j = i; j < ExprCopy.Count; j++)
+                    {
+                        if (ExprCopy[j].sValue == "(")
+                            bracketDepth++;
+                        else if (ExprCopy[j].sValue == "(")
+                            bracketDepth--;
+
+                        arguments.Add(ExprCopy[j]);
+                        ExprCopy.RemoveAt(j);
+                        j--;
+
+                        if (bracketDepth == 0)
+                            break;
+                    }
+                    
+                    //recursively evaluate arguments
+                    double dResult = eval(arguments);
+                    Token tResult  = new Token(ValType.NUMBER,dResult.ToString());
+
+                    //replace method with numeric value
+                    ExprCopy[i] = tResult;
+
+                }//end if
+            }//end methods loop
+
+            //eval brackets
+            for (int i = 0; i < ExprCopy.Count; i++)
+            {
+                
+            }
+
 
 
             return 0;
