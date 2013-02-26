@@ -119,9 +119,9 @@ namespace PieceWiseInput
                     for (int j = i+1; j < ExprCopy.Count; j++)
                     {
                         //check bracket depth
-                        if (ExprCopy[j].sValue == "(")
+                        if (ExprCopy[j].sValue.Equals("("))
                             bracketDepth++;
-                        else if (ExprCopy[j].sValue == ")")
+                        else if (ExprCopy[j].sValue.Equals(")"))
                             bracketDepth--;
 
                         //put token into arguments and rmv from ExprCopy
@@ -135,11 +135,10 @@ namespace PieceWiseInput
                     
                     //recursively evaluate arguments
                     double dResult = eval(arguments);
-                    Token tResult  = new Token(ValType.NUMBER,dResult.ToString());
 
-                    ExprCopy[i].
                     //replace method with numeric value
-                    ExprCopy[i] = tResult;
+                    dResult = mathFuncEval(ExprCopy.toString(),dResult);
+                    ExprCopy[i] = new Token(dResult);
 
                 }//end if
             }//end methods loop
@@ -147,10 +146,139 @@ namespace PieceWiseInput
             //eval brackets
             for (int i = 0; i < ExprCopy.Count; i++)
             {
-                
-            }
+                //if its the start of a bracket
+                if (ExprCopy[i].vType == ValType.OPBRACKET)
+                {
+                    //find args of method
+                    int bracketDepth = 0;
+                    List<Token> arguments = new List<Token>();
+                    
+                    //start args right after method
+                    for (int j = i+1; j < ExprCopy.Count; j++)
+                    {
+                        //check bracket depth
+                        if (ExprCopy[j].sValue.Equals("("))
+                            bracketDepth++;
+                        else if (ExprCopy[j].sValue.Equals(")"))
+                            bracketDepth--;
 
+                        //put token into arguments and rmv from ExprCopy
+                        arguments.Add(ExprCopy[j]);
+                        ExprCopy.RemoveAt(j);
+                        j--;
 
+                        if (bracketDepth == 0)
+                            break;
+                    }
+                    
+                    //recursively evaluate arguments
+                    double dResult = eval(arguments);
+
+                    //replace bracket with numeric value
+                    ExprCopy[i] = new Token(dResult);
+
+                }//end if
+            }//end brackets loop
+            
+            //exponents loop
+            for (int i = 0; i < ExprCopy.Count; i++)
+            {
+                //if its the start of an exponent
+                if (ExprCopy[i].toString().Equals("^"))
+                {
+                    //replace with value
+                    ExprCopy[i-1] = new Token(System.Math.Pow(stringToDouble(ExprCopy[i-1].toSting()),stringToDouble(ExprCopy[i+1].toString())));
+                    //remove operator and argument
+                    ExprCopy.RemoveAt(i);
+                    ExprCopy.RemoveAt(i);
+                    i--;
+                    i--;
+                }
+            }//end exponents loop
+   
+             //divisions loop
+            for (int i = 0; i < ExprCopy.Count; i++)
+            {
+                if(ExprCopy[i].toString.Equals("/"))
+                {
+                    //get numeric value
+                    double d1 = stringToDouble(ExprCopy[i-1]);
+                    double d2 = stringToDouble(ExprCopy[i+1]);
+                    
+                    //replace with value
+                    ExprCopy[i] = new token(d1/d2);
+                    
+                    //remove operator and argument
+                    ExprCopy.RemoveAt(i);
+                    ExprCopy.RemoveAt(i);
+                    i--;
+                    i--;
+                    
+                }
+            }//end divisions loop
+            
+             //multiplications loop
+            for (int i = 0; i < ExprCopy.Count; i++)
+            {
+                if(ExprCopy[i].toString.Equals("*"))
+                {
+                    //get numeric value
+                    double d1 = stringToDouble(ExprCopy[i-1]);
+                    double d2 = stringToDouble(ExprCopy[i+1]);
+                    
+                    //replace with value
+                    ExprCopy[i] = new token(d1*d2);
+                    
+                    //remove operator and argument
+                    ExprCopy.RemoveAt(i);
+                    ExprCopy.RemoveAt(i);
+                    i--;
+                    i--;
+                    
+                }
+            }//end multiplications loop
+            
+             //additions loop
+            for (int i = 0; i < ExprCopy.Count; i++)
+            {
+                if(ExprCopy[i].toString.Equals("+"))
+                {
+                    //get numeric value
+                    double d1 = stringToDouble(ExprCopy[i-1]);
+                    double d2 = stringToDouble(ExprCopy[i+1]);
+                    
+                    //replace with value
+                    ExprCopy[i] = new token(d1+d2);
+                    
+                    //remove operator and argument
+                    ExprCopy.RemoveAt(i);
+                    ExprCopy.RemoveAt(i);
+                    i--;
+                    i--;
+                    
+                }
+            }//end additions loop
+            
+             //subtractions loop
+            for (int i = 0; i < ExprCopy.Count; i++)
+            {
+                if(ExprCopy[i].toString.Equals("-"))
+                {
+                    //get numeric value
+                    double d1 = stringToDouble(ExprCopy[i-1]);
+                    double d2 = stringToDouble(ExprCopy[i+1]);
+                    
+                    //replace with value
+                    ExprCopy[i] = new token(d1-d2);
+                    
+                    //remove operator and argument
+                    ExprCopy.RemoveAt(i);
+                    ExprCopy.RemoveAt(i);
+                    i--;
+                    i--;
+                    
+                }
+            }//end subtractions loop
 
             return 0;
         }
