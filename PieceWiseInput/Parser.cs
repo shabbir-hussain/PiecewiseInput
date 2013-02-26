@@ -19,7 +19,7 @@ namespace PieceWiseInput
             Methods.Add("COS");
             Methods.Add("EXP");
             Methods.Add("LOG");
-            Methods.Add("POW");
+            //Methods.Add("POW");
             Methods.Add("SIN");
             Methods.Add("SQRT");
             Methods.Add("TAN");
@@ -65,8 +65,15 @@ namespace PieceWiseInput
             if (funcToken == null)
                 return 0;
 
-            //plug in x
-            foreach (var item in funcToken)
+            //make copy
+            List<Token> ExprCopy = new List<Token>();
+            for (int i = 0; i < Expression.Count; i++)
+            {
+                ExprCopy.Add(new Token(Expression[i].vType, Expression[i].sValue));
+            }
+
+            //plug in value of x into copy
+            foreach (var item in ExprCopy)
             {
                 if (item.vType == ValType.VARIABLE)
                 {
@@ -74,11 +81,12 @@ namespace PieceWiseInput
                 }
             }
 
-
-
-            return 0;
+            //evaluate the copy
+            return eval(ExprCopy);
         }
-
+    
+        //get numeric value of expression
+        // assume x is replaced by value
         private double eval(List<Token> Expression)
         {
             //evaluate using 
@@ -106,13 +114,17 @@ namespace PieceWiseInput
                     //find args of method
                     int bracketDepth = 0;
                     List<Token> arguments = new List<Token>();
-                    for (int j = i; j < ExprCopy.Count; j++)
+                    
+                    //start args right after method
+                    for (int j = i+1; j < ExprCopy.Count; j++)
                     {
+                        //check bracket depth
                         if (ExprCopy[j].sValue == "(")
                             bracketDepth++;
-                        else if (ExprCopy[j].sValue == "(")
+                        else if (ExprCopy[j].sValue == ")")
                             bracketDepth--;
 
+                        //put token into arguments and rmv from ExprCopy
                         arguments.Add(ExprCopy[j]);
                         ExprCopy.RemoveAt(j);
                         j--;
@@ -125,6 +137,7 @@ namespace PieceWiseInput
                     double dResult = eval(arguments);
                     Token tResult  = new Token(ValType.NUMBER,dResult.ToString());
 
+                    ExprCopy[i].
                     //replace method with numeric value
                     ExprCopy[i] = tResult;
 
@@ -141,7 +154,60 @@ namespace PieceWiseInput
 
             return 0;
         }
-
+        
+        //get value of math funtion
+        private double mathFuncEval(String func, double args)
+        {
+            //hard code evaluation
+            if(func.Equals("ABS"))
+            {
+                return System.Math.Abs(args);
+            }
+            if(func.Equals("ACOS"))
+            {
+                return System.Math.Acos(args);
+            }
+            if(func.Equals("ASIN"))
+            {
+                return System.Math.Asin(args);
+            }
+            if(func.Equals("ATAN"))
+            {
+                return System.Math.Atan(args);
+            }
+            if(func.Equals("COS"))
+            {
+                return System.Math.Cos(args);
+            }
+            if(func.Equals("EXP"))
+            {
+                return System.Math.Exp(args);
+            }
+            if(func.Equals("LOG"))
+            {
+                return System.Math.Log(args);
+            }
+            /*if(func.Equals("POW"))
+            {
+                return System.Math.Pow(args);
+            }*/
+            if(func.Equals("SIN"))
+            {
+                return System.Math.Sin(args);
+            }
+            if(func.Equals("SQRT"))
+            {
+                return System.Math.Sqrt(args);
+            }
+            if(func.Equals("TAN"))
+            {
+                return System.Math.Tan(args);
+            }
+            
+           
+           
+        }
+        
         public void inputFuntion(string function)
         {
             funcToken = parseFunction(function);
