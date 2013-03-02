@@ -73,14 +73,38 @@ namespace TestProject1
         public void evalTestEval()
         {
             Parser_Accessor target = new Parser_Accessor(); // TODO: Initialize to an appropriate value
-            String input = "sin(x)";
-            target.inputFuntion(input);
-            double expected = 6000F; // TODO: Initialize to an appropriate value
-
-
+            String input;
+            double expected;
             double actual;
-            actual = target.evalFuncAt(3.14157);
-            Assert.AreEqual(expected, actual);
+
+            try
+            {
+                input = "6*x^2";
+                target.inputFuntion(input);
+                expected = 24F; // TODO: Initialize to an appropriate value
+                actual = target.evalFuncAt(2);
+                Assert.AreEqual(expected, actual);
+                Console.WriteLine("e: " + expected + " a: " + actual); 
+
+                input = "sin(PI/2)";
+                target.inputFuntion(input);
+                expected = 1F; // TODO: Initialize to an appropriate value
+                actual = target.evalFuncAt(5);
+                Assert.AreEqual(expected, actual);
+                Console.WriteLine("e: " + expected + " a: " + actual); 
+
+                input = "5*x+2";
+                target.inputFuntion(input);
+                expected = 7F; // TODO: Initialize to an appropriate value
+                actual = target.evalFuncAt(1);
+                Assert.AreEqual(expected, actual);
+                Console.WriteLine("e: " + expected + " a: " + actual); 
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
             
         }
     }

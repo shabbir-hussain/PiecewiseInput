@@ -77,7 +77,7 @@ namespace PieceWiseInput
             {
                 if (ExprCopy[i].vType == ValType.VARIABLE)
                 {
-                    ExprCopy[i] = new Token(ValType.NUMBER, x.ToString());
+                    ExprCopy[i] = new Token(x);
                 }
             }
 
@@ -89,7 +89,7 @@ namespace PieceWiseInput
         // assume x is replaced by value
         private double eval(List<Token> ExprCopy)
         {
-            //evaluate using 
+            //evaluate in order of:
             //methods
             //brackets
             //exponents
@@ -98,14 +98,19 @@ namespace PieceWiseInput
             //additions
             //subtractions
 
- 
-
             //eval methods
             for (int i = 0; i < ExprCopy.Count; i++)
             {
                 //if its the start of a method
                 if (ExprCopy[i].vType == ValType.LETTER)
                 {
+                    //check if its a constant
+                    if(ExprCopy[i].ToString().Equals("PI"))
+                    {
+                        ExprCopy[i].dValue = Math.PI;
+                        ExprCopy[i].vType = ValType.NUMBER;
+                    }
+
                     //find args of method
                     int bracketDepth = 0;
                     List<Token> arguments = new List<Token>();
@@ -133,7 +138,7 @@ namespace PieceWiseInput
                     
                     //replace method with numeric value
                     dResult = mathFuncEval(ExprCopy[i].ToString(),dResult);
-                    ExprCopy[i] = new Token(ValType.NUMBER, dResult.ToString());
+                    ExprCopy[i] = new Token(dResult);
 
                 }//end if
             }//end methods loop
@@ -170,7 +175,7 @@ namespace PieceWiseInput
                     double dResult = eval(arguments);
 
                     //replace bracket with numeric value
-                    ExprCopy[i] = new Token(ValType.NUMBER, dResult.ToString());
+                    ExprCopy[i] = new Token(dResult);
 
                 }//end if
             }//end brackets loop
@@ -182,10 +187,10 @@ namespace PieceWiseInput
                 if (ExprCopy[i].ToString().Equals("^"))
                 {
                     //replace with value
-                    double x = stringToDouble(ExprCopy[i-1].ToString());
-                    double y = stringToDouble(ExprCopy[i + 1].ToString());
+                    double x = ExprCopy[i-1].dValue;
+                    double y = ExprCopy[i+1].dValue;
                     double expRes =System.Math.Pow(x,y);
-                    ExprCopy[i-1] = new Token(ValType.NUMBER, expRes.ToString());
+                    ExprCopy[i-1] = new Token(expRes);
                     //remove operator and argument
                     ExprCopy.RemoveAt(i);
                     ExprCopy.RemoveAt(i);
@@ -200,11 +205,11 @@ namespace PieceWiseInput
                 if(ExprCopy[i].ToString().Equals("/"))
                 {
                     //get numeric value
-                    double d1 = stringToDouble(ExprCopy[i-1].ToString());
-                    double d2 = stringToDouble(ExprCopy[i+1].ToString());
+                    double d1 = ExprCopy[i-1].dValue;
+                    double d2 = ExprCopy[i+1].dValue;
                     
                     //replace with value
-                    ExprCopy[i-1] = new Token(ValType.NUMBER, (d1/d2).ToString());
+                    ExprCopy[i-1] = new Token((d1/d2));
                     
                     //remove operator and argument
                     ExprCopy.RemoveAt(i);
@@ -221,11 +226,11 @@ namespace PieceWiseInput
                 if(ExprCopy[i].ToString().Equals("*"))
                 {
                     //get numeric value
-                    double d1 = stringToDouble(ExprCopy[i-1].ToString());
-                    double d2 = stringToDouble(ExprCopy[i+1].ToString());
+                    double d1 = ExprCopy[i-1].dValue;
+                    double d2 = ExprCopy[i+1].dValue ;
                     
                     //replace with value
-                    ExprCopy[i-1] = new Token(ValType.NUMBER, (d1*d2).ToString());
+                    ExprCopy[i-1] = new Token((d1*d2));
                     
                     //remove operator and argument
                     ExprCopy.RemoveAt(i);
@@ -242,11 +247,11 @@ namespace PieceWiseInput
                 if(ExprCopy[i].ToString().Equals("+"))
                 {
                     //get numeric value
-                    double d1 = stringToDouble(ExprCopy[i-1].ToString());
-                    double d2 = stringToDouble(ExprCopy[i+1].ToString());
-                    
+                    double d1 = ExprCopy[i - 1].dValue;
+                    double d2 = ExprCopy[i + 1].dValue;
+
                     //replace with value
-                    ExprCopy[i-1] = new Token(ValType.NUMBER,(d1+d2).ToString());
+                    ExprCopy[i - 1] = new Token((d1 + d2));
                     
                     //remove operator and argument
                     ExprCopy.RemoveAt(i);
@@ -263,11 +268,11 @@ namespace PieceWiseInput
                 if(ExprCopy[i].ToString().Equals("-"))
                 {
                     //get numeric value
-                    double d1 = stringToDouble(ExprCopy[i-1].ToString());
-                    double d2 = stringToDouble(ExprCopy[i+1].ToString());
-                    
+                    double d1 = ExprCopy[i - 1].dValue;
+                    double d2 = ExprCopy[i + 1].dValue;
+
                     //replace with value
-                    ExprCopy[i-1] = new Token(ValType.NUMBER,(d1-d2).ToString());
+                    ExprCopy[i - 1] = new Token((d1 - d2));
                     
                     //remove operator and argument
                     ExprCopy.RemoveAt(i);
@@ -283,7 +288,7 @@ namespace PieceWiseInput
                 //throw exception
             }
 
-            return stringToDouble(ExprCopy[0].ToString());
+            return ExprCopy[0].dValue;
         }
         
         //get value of math funtion *assume valid inputs*
@@ -322,6 +327,10 @@ namespace PieceWiseInput
             {
                 return System.Math.Pow(args);
             }*/
+            if (func.Equals("PI"))
+            {
+                return System.Math.PI;
+            }
             if(func.Equals("SIN"))
             {
                 return System.Math.Sin(args);
@@ -630,6 +639,11 @@ namespace PieceWiseInput
                                     throw Ex;
                                 }
                         }
+                        //add exception for PI
+                        if ((curToken.ToString() + function[ptr]).Equals("PI"))
+                        {
+                           curvType = ValType.NUMBER;
+                        }
                         break;
                     default:
                         break;
@@ -662,8 +676,27 @@ namespace PieceWiseInput
                 else
                     ex.Message = "Missing Opening bracket";
             }
+            
+            // check if letter is in list of valid methods
+            for (int i = 0; i < tokens.Count; i++)
+            {
+                if (tokens[i].vType == ValType.LETTER)
+                {
+                    
+                    int index = Methods.FindIndex(item => item.ToString().Equals(tokens[i].ToString()));
 
-            //check function ending
+                    if (index == -1)
+                    {
+                        InvalidInputException ex = new InvalidInputException();
+                        ex.Message = tokens[i].ToString() + " is an invalid method";
+                        throw ex;
+                    }
+                    
+                }
+            }
+
+
+            //check function ending is valid
             //get last char type
             if (Regex.IsMatch(function[function.Length-1].ToString(), "[A-WYZ]"))
             {

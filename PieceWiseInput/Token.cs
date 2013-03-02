@@ -16,6 +16,20 @@ namespace PieceWiseInput
         {
             vType = ivType;
             sValue = isValue;
+
+            if (vType == Parser.ValType.NUMBER)
+            {
+                if(sValue.Equals("PI"))
+                    dValue = Math.PI;
+                else
+                    dValue =Parser.stringToDouble(sValue);
+            }
+        }
+        public Token(double value)
+        {
+            vType = Parser.ValType.NUMBER;
+            sValue = value.ToString();
+            dValue = value;
         }
 
         public override string ToString()
@@ -23,6 +37,7 @@ namespace PieceWiseInput
             return sValue;
         }
 
+        //check if two string values are equal
         public bool isEqual(Token test)
         {
             if (test.sValue.Equals(this.sValue,StringComparison.OrdinalIgnoreCase) )
