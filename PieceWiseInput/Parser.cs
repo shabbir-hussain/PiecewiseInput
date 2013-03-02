@@ -67,9 +67,9 @@ namespace PieceWiseInput
 
             //make copy
             List<Token> ExprCopy = new List<Token>();
-            for (int i = 0; i < Expression.Count; i++)
+            for (int i = 0; i < funcToken.Count; i++)
             {
-                ExprCopy.Add(new Token(Expression[i].vType, Expression[i].sValue));
+                ExprCopy.Add(new Token(funcToken[i].vType, funcToken[i].sValue));
             }
 
             //plug in value of x into copy
@@ -87,7 +87,7 @@ namespace PieceWiseInput
     
         //get numeric value of expression
         // assume x is replaced by value
-        private double eval(List<Token> Expression)
+        private double eval(List<Token> ExprCopy)
         {
             //evaluate using 
             //methods
@@ -98,12 +98,7 @@ namespace PieceWiseInput
             //additions
             //subtractions
 
-            //make copy
-            List<Token> ExprCopy = new List<Token>();
-            for (int i = 0; i < Expression.Count; i++)
-            {
-                ExprCopy.Add(new Token(Expression[i].vType, Expression[i].sValue));
-            }
+ 
 
             //eval methods
             for (int i = 0; i < ExprCopy.Count; i++)
@@ -135,10 +130,10 @@ namespace PieceWiseInput
                     
                     //recursively evaluate arguments
                     double dResult = eval(arguments);
-
+                    
                     //replace method with numeric value
-                    dResult = mathFuncEval(ExprCopy.toString(),dResult);
-                    ExprCopy[i] = new Token(dResult);
+                    dResult = mathFuncEval(ExprCopy[i].ToString(),dResult);
+                    ExprCopy[i] = new Token(ValType.NUMBER, dResult.ToString());
 
                 }//end if
             }//end methods loop
@@ -175,7 +170,7 @@ namespace PieceWiseInput
                     double dResult = eval(arguments);
 
                     //replace bracket with numeric value
-                    ExprCopy[i] = new Token(dResult);
+                    ExprCopy[i] = new Token(ValType.NUMBER, dResult.ToString());
 
                 }//end if
             }//end brackets loop
@@ -184,10 +179,10 @@ namespace PieceWiseInput
             for (int i = 0; i < ExprCopy.Count; i++)
             {
                 //if its the start of an exponent
-                if (ExprCopy[i].toString().Equals("^"))
+                if (ExprCopy[i].ToString().Equals("^"))
                 {
                     //replace with value
-                    ExprCopy[i-1] = new Token(System.Math.Pow(stringToDouble(ExprCopy[i-1].toSting()),stringToDouble(ExprCopy[i+1].toString())));
+                    ExprCopy[i-1] = new Token(ValType.NUMBER, System.Math.Pow(stringToDouble(ExprCopy[i-1].ToString()),stringToDouble(ExprCopy[i+1].ToString())).ToString());
                     //remove operator and argument
                     ExprCopy.RemoveAt(i);
                     ExprCopy.RemoveAt(i);
@@ -199,14 +194,14 @@ namespace PieceWiseInput
              //divisions loop
             for (int i = 0; i < ExprCopy.Count; i++)
             {
-                if(ExprCopy[i].toString.Equals("/"))
+                if(ExprCopy[i].ToString().Equals("/"))
                 {
                     //get numeric value
-                    double d1 = stringToDouble(ExprCopy[i-1]);
-                    double d2 = stringToDouble(ExprCopy[i+1]);
+                    double d1 = stringToDouble(ExprCopy[i-1].ToString());
+                    double d2 = stringToDouble(ExprCopy[i+1].ToString());
                     
                     //replace with value
-                    ExprCopy[i] = new token(d1/d2);
+                    ExprCopy[i] = new Token(ValType.NUMBER, (d1/d2).ToString());
                     
                     //remove operator and argument
                     ExprCopy.RemoveAt(i);
@@ -220,14 +215,14 @@ namespace PieceWiseInput
              //multiplications loop
             for (int i = 0; i < ExprCopy.Count; i++)
             {
-                if(ExprCopy[i].toString.Equals("*"))
+                if(ExprCopy[i].ToString().Equals("*"))
                 {
                     //get numeric value
-                    double d1 = stringToDouble(ExprCopy[i-1]);
-                    double d2 = stringToDouble(ExprCopy[i+1]);
+                    double d1 = stringToDouble(ExprCopy[i-1].ToString());
+                    double d2 = stringToDouble(ExprCopy[i+1].ToString());
                     
                     //replace with value
-                    ExprCopy[i] = new token(d1*d2);
+                    ExprCopy[i] = new Token(ValType.NUMBER, (d1*d2).ToString());
                     
                     //remove operator and argument
                     ExprCopy.RemoveAt(i);
@@ -241,14 +236,14 @@ namespace PieceWiseInput
              //additions loop
             for (int i = 0; i < ExprCopy.Count; i++)
             {
-                if(ExprCopy[i].toString.Equals("+"))
+                if(ExprCopy[i].ToString().Equals("+"))
                 {
                     //get numeric value
-                    double d1 = stringToDouble(ExprCopy[i-1]);
-                    double d2 = stringToDouble(ExprCopy[i+1]);
+                    double d1 = stringToDouble(ExprCopy[i-1].ToString());
+                    double d2 = stringToDouble(ExprCopy[i+1].ToString());
                     
                     //replace with value
-                    ExprCopy[i] = new token(d1+d2);
+                    ExprCopy[i] = new Token(ValType.NUMBER,(d1+d2).ToString());
                     
                     //remove operator and argument
                     ExprCopy.RemoveAt(i);
@@ -262,14 +257,14 @@ namespace PieceWiseInput
              //subtractions loop
             for (int i = 0; i < ExprCopy.Count; i++)
             {
-                if(ExprCopy[i].toString.Equals("-"))
+                if(ExprCopy[i].ToString().Equals("-"))
                 {
                     //get numeric value
-                    double d1 = stringToDouble(ExprCopy[i-1]);
-                    double d2 = stringToDouble(ExprCopy[i+1]);
+                    double d1 = stringToDouble(ExprCopy[i-1].ToString());
+                    double d2 = stringToDouble(ExprCopy[i+1].ToString());
                     
                     //replace with value
-                    ExprCopy[i] = new token(d1-d2);
+                    ExprCopy[i] = new Token(ValType.NUMBER,(d1-d2).ToString());
                     
                     //remove operator and argument
                     ExprCopy.RemoveAt(i);
@@ -283,7 +278,7 @@ namespace PieceWiseInput
             return 0;
         }
         
-        //get value of math funtion
+        //get value of math funtion *assume valid inputs*
         private double mathFuncEval(String func, double args)
         {
             //hard code evaluation
@@ -331,6 +326,8 @@ namespace PieceWiseInput
             {
                 return System.Math.Tan(args);
             }
+
+            return 0;
             
            
            

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="d0310cc4-7f88-48be-b0cd-9697dd1a938a" name="Shabbir@SHABBIR-LAPTOP 2013-03-02 10:41:19" runUser="SHABBIR-LAPTOP\Shabbir" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="ab53c294-92e3-4049-9e6d-3c050735bbb2">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Shabbir_SHABBIR-LAPTOP 2013-03-02 10_41_19">
+      <DeploymentItem filename="C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\bin\Debug\PieceWiseInput.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-03-02T10:41:19.4443465-05:00" queuing="2013-03-02T10:41:21.1672344-05:00" start="2013-03-02T10:41:21.3553606-05:00" finish="2013-03-02T10:41:38.6469793-05:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="2" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="SHABBIR-LAPTOP" outcome="Warning" timestamp="2013-03-02T10:41:19.4913751-05:00">
+        <Text>Deployment is currently disabled. The deployment item 'PieceWiseInput.exe' on test 'PieceWiseInputTester.ParserTest.parseFunctionTest' was not deployed.</Text>
+      </RunInfo>
+      <RunInfo computerName="SHABBIR-LAPTOP" outcome="Error" timestamp="2013-03-02T10:41:38.6459803-05:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="parseFunctionTest" storage="c:\users\shabbir\documents\visual studio 2010\projects\piecewiseinput\piecewiseinputtester\bin\debug\piecewiseinputtester.dll" id="933d104a-7ada-f30a-ecb4-fffebfc34619">
+      <DeploymentItems>
+        <DeploymentItem filename="PieceWiseInput.exe" />
+      </DeploymentItems>
+      <Execution id="03387985-416f-483d-bd48-a18576cb8989" />
+      <TestMethod codeBase="C:/Users/Shabbir/Documents/Visual Studio 2010/Projects/PiecewiseInput/PieceWiseInputTester/bin/Debug/PieceWiseInputTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PieceWiseInputTester.ParserTest, PieceWiseInputTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="parseFunctionTest" />
+    </UnitTest>
+    <UnitTest name="parseFunctionEvalTest" storage="c:\users\shabbir\documents\visual studio 2010\projects\piecewiseinput\piecewiseinputtester\bin\debug\piecewiseinputtester.dll" id="d1cbd19a-f9d7-00b3-12c8-739c87537c4a">
+      <DeploymentItems>
+        <DeploymentItem filename="PieceWiseInput.exe" />
+      </DeploymentItems>
+      <Execution id="5f1626c6-a2fe-4afb-beb8-c0bf88fa16ae" />
+      <TestMethod codeBase="C:/Users/Shabbir/Documents/Visual Studio 2010/Projects/PiecewiseInput/PieceWiseInputTester/bin/Debug/PieceWiseInputTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PieceWiseInputTester.ParserTest, PieceWiseInputTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="parseFunctionEvalTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="933d104a-7ada-f30a-ecb4-fffebfc34619" executionId="03387985-416f-483d-bd48-a18576cb8989" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1cbd19a-f9d7-00b3-12c8-739c87537c4a" executionId="5f1626c6-a2fe-4afb-beb8-c0bf88fa16ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="03387985-416f-483d-bd48-a18576cb8989" testId="933d104a-7ada-f30a-ecb4-fffebfc34619" testName="parseFunctionTest" computerName="SHABBIR-LAPTOP" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="03387985-416f-483d-bd48-a18576cb8989">
+    </UnitTestResult>
+    <UnitTestResult executionId="5f1626c6-a2fe-4afb-beb8-c0bf88fa16ae" testId="d1cbd19a-f9d7-00b3-12c8-739c87537c4a" testName="parseFunctionEvalTest" computerName="SHABBIR-LAPTOP" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5f1626c6-a2fe-4afb-beb8-c0bf88fa16ae">
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0e2af898-71e4-49ae-83d0-62145afc1c7d" name="Shabbir@SHABBIR-LAPTOP 2013-03-02 10:53:22" runUser="SHABBIR-LAPTOP\Shabbir" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="ab53c294-92e3-4049-9e6d-3c050735bbb2">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Shabbir_SHABBIR-LAPTOP 2013-03-02 10_53_22">
+      <DeploymentItem filename="C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\bin\Debug\PieceWiseInput.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-03-02T10:53:22.0365522-05:00" queuing="2013-03-02T10:53:23.5995978-05:00" start="2013-03-02T10:53:23.8407548-05:00" finish="2013-03-02T10:53:35.2332027-05:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="1" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="SHABBIR-LAPTOP" outcome="Warning" timestamp="2013-03-02T10:53:22.1055972-05:00">
+        <Text>Deployment is currently disabled. The deployment item 'PieceWiseInput.exe' on test 'TestProject1.ParserTest.evalTestEval' was not deployed.</Text>
+      </RunInfo>
+      <RunInfo computerName="SHABBIR-LAPTOP" outcome="Error" timestamp="2013-03-02T10:53:35.2312007-05:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="evalTestEval" storage="c:\users\shabbir\documents\visual studio 2010\projects\piecewiseinput\testproject1\bin\debug\testproject1.dll" id="8393910a-8c0e-bc87-889b-27796ac6a112">
+      <DeploymentItems>
+        <DeploymentItem filename="PieceWiseInput.exe" />
+      </DeploymentItems>
+      <Execution id="e6de2532-96d7-4f2c-8453-84a16730324f" />
+      <TestMethod codeBase="C:/Users/Shabbir/Documents/Visual Studio 2010/Projects/PiecewiseInput/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.ParserTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="evalTestEval" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="8393910a-8c0e-bc87-889b-27796ac6a112" executionId="e6de2532-96d7-4f2c-8453-84a16730324f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="e6de2532-96d7-4f2c-8453-84a16730324f" testId="8393910a-8c0e-bc87-889b-27796ac6a112" testName="evalTestEval" computerName="SHABBIR-LAPTOP" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6de2532-96d7-4f2c-8453-84a16730324f">
+    </UnitTestResult>
+  </Results>
+</TestRun>
