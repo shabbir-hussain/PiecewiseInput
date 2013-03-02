@@ -72,13 +72,16 @@ namespace TestProject1
         [DeploymentItem("PieceWiseInput.exe")]
         public void evalTestEval()
         {
-           // Parser_Accessor target = new Parser_Accessor(); // TODO: Initialize to an appropriate value
-          //  List<Token_Accessor> ExprCopy = null; // TODO: Initialize to an appropriate value
-            double expected = 0F; // TODO: Initialize to an appropriate value
+            Parser_Accessor target = new Parser_Accessor(); // TODO: Initialize to an appropriate value
+            String input = "sin(x)";
+            target.inputFuntion(input);
+            double expected = 6000F; // TODO: Initialize to an appropriate value
+
+
             double actual;
-        //    actual = target.eval(ExprCopy);
-          //  Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            actual = target.evalFuncAt(3.14157);
+            Assert.AreEqual(expected, actual);
+            
         }
     }
 }

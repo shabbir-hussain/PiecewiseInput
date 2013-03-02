@@ -1,8 +1,9 @@
 C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\bin\Debug\PieceWiseInput.exe
 C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\bin\Debug\PieceWiseInput.pdb
-C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.csprojResolveAssemblyReference.cache
 C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.Form1.resources
 C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.Properties.Resources.resources
-C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.csproj.GenerateResource.Cache
 C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.exe
 C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\obj\x86\Debug\PieceWiseInput.pdb
+C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\PieceWiseInput\obj\x86\Debug\GenerateResource.write.1.tlog
