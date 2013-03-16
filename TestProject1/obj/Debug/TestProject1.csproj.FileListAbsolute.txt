@@ -6,4 +6,4 @@ C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\TestProjec
 C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\TestProject1\bin\Debug\PieceWiseInput_Accessor.pdb
 C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\TestProject1\obj\Debug\TestProject1.dll
 C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\TestProject1\obj\Debug\TestProject1.pdb
-C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\TestProject1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shabbir\Documents\Visual Studio 2010\Projects\PiecewiseInput\TestProject1\obj\Debug\TestProject1.csprojResolveAssemblyReference.cache
